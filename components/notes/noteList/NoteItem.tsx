@@ -1,14 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Notes } from "@/interfaces/Notes";
 
 type NoteItemsProps = {
-  note: {
-    slug: string;
-    title: string;
-    description: string;
-    date: string;
-    coverImage: string;
-  };
+  note: Notes;
 };
 
 const NoteItem = ({ note }: NoteItemsProps) => {

@@ -41,18 +41,16 @@ export default function Home() {
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
           <h2 className="text-2xl font-bold tracking-tight text-gray-900">
             Newest Notes
-            <Link href="/blogs" className="ml-1 text-sm text-indigo-600">
+            <Link href="/notes" className="ml-1 text-sm text-indigo-600">
               (See All)
             </Link>
           </h2>
-
           <NoteList />
-
           <br></br>
 
           <h2 className="text-2xl font-bold tracking-tight text-gray-900">
             Projects
-            <Link href="/portfolios" className="ml-1 text-sm text-indigo-600">
+            <Link href="/projects" className="ml-1 text-sm text-indigo-600">
               (See All)
             </Link>
           </h2>
@@ -70,7 +68,7 @@ export default function Home() {
                   />
                 </div>
                 <h3 className="mt-6 text-sm text-gray-500">
-                  <Link href={`/portfolios/${project.slug}`}>
+                  <Link href={`/projects/${project.slug}`}>
                     <span className="absolute inset-0" />
                     {project.title}
                   </Link>

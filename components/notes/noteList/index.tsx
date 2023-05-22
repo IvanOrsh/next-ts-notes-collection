@@ -1,5 +1,4 @@
-import Link from "next/link";
-import Image from "next/image";
+import NoteItem from "./NoteItem";
 
 const notes = [
   {
@@ -35,37 +34,7 @@ const NoteList = () => {
   return (
     <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
       {notes.map((note) => (
-        <div key={note.slug} className="group">
-          <div className="aspect-w-1 aspect-h-1 lg:aspect-none h-80 w-full rounded-md bg-gray-200 group-hover:opacity-75 lg:h-40">
-            <Link href={`/blogs/${note.slug}`}>
-              <div className="aspect-w-1 aspect-h-1 lg:aspect-none relative h-80 w-full rounded-md bg-gray-200 group-hover:opacity-75 lg:h-40">
-                <Image
-                  priority
-                  layout="fill"
-                  objectFit="cover"
-                  src={note.coverImage}
-                  className="rounded-lg hover:cursor-pointer"
-                  alt={""}
-                />
-              </div>
-            </Link>
-          </div>
-          <div className="mt-4 flex justify-between">
-            <div>
-              <h3 className="text-sm font-bold text-gray-700">
-                <span aria-hidden="true" className="inset-0" />
-                {note.title}
-              </h3>
-              <p className="mt-1 text-sm text-gray-500">{note.description}</p>
-            </div>
-          </div>
-          <Link
-            href={`/blogs/${note.slug}`}
-            className="text-sm font-bold text-gray-700"
-          >
-            Read More
-          </Link>
-        </div>
+        <NoteItem key={note.slug} note={note} />
       ))}
     </div>
   );

@@ -1,17 +1,6 @@
 import Link from "next/link";
 
-//TODO: extract navigation and social links
-
-const navigation = [
-  {
-    name: "Notes",
-    href: "/notes",
-  },
-  {
-    name: "Projects",
-    href: "/projects",
-  },
-];
+import { navigation } from "../navbar/navigation";
 
 // TODO: fix path
 const socialLinks = [

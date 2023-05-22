@@ -4,3 +4,4 @@
 4. extract navigation links to a separate module `components/navbar/navigation.ts`
 5. extract NoteList
 6. extract NoteItem from NoteList
+7. extract ProjectList, ProjectItem

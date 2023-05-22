@@ -5,18 +5,7 @@ import Image from "next/image";
 
 import { Footer, Header, Navbar } from "@/components/common";
 import { NoteList } from "@/components/notes";
-
-// TODO: add projects
-const projects = [
-  {
-    slug: "needs-a-better-system-for-this",
-    title: "",
-    description: "",
-    date: "",
-    coverImage:
-      "https://images.unsplash.com/photo-1503980850968-b7c3b4af0e05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1086&q=80",
-  },
-];
+import { ProjectList } from "@/components/projects";
 
 export default function Home() {
   return (
@@ -54,32 +43,7 @@ export default function Home() {
               (See All)
             </Link>
           </h2>
-
-          {/* Project List Starts */}
-          <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-            {projects.map((project) => (
-              <div key={project.slug} className="group relative">
-                <div className="sm:aspect-w-2 sm:aspect-h-1 lg:aspect-w-1 lg:aspect-h-1 relative h-80 w-full overflow-hidden rounded-lg bg-white group-hover:opacity-75 sm:h-64">
-                  <Image
-                    layout="fill"
-                    src={project.coverImage}
-                    alt={""}
-                    className="h-full w-full object-cover object-center"
-                  />
-                </div>
-                <h3 className="mt-6 text-sm text-gray-500">
-                  <Link href={`/projects/${project.slug}`}>
-                    <span className="absolute inset-0" />
-                    {project.title}
-                  </Link>
-                </h3>
-                <p className="text-base font-semibold text-gray-900">
-                  {project.description}
-                </p>
-              </div>
-            ))}
-          </div>
-          {/* Portfolio List Ends */}
+          <ProjectList />
         </div>
       </div>
       <Footer />

@@ -21,8 +21,8 @@ const NoteItem = ({ note }: NoteItemsProps) => {
           <div className="aspect-w-1 aspect-h-1 lg:aspect-none relative h-80 w-full rounded-md bg-gray-200 group-hover:opacity-75 lg:h-40">
             <Image
               priority
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: "cover" }}
               src={coverImage}
               className="rounded-lg hover:cursor-pointer"
               alt={""}

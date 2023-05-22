@@ -18,7 +18,7 @@ const ProjectItem = ({ project }: ProjectItemProps) => {
     <div key={slug} className="group relative">
       <div className="sm:aspect-w-2 sm:aspect-h-1 lg:aspect-w-1 lg:aspect-h-1 relative h-80 w-full overflow-hidden rounded-lg bg-white group-hover:opacity-75 sm:h-64">
         <Image
-          layout="fill"
+          fill
           src={coverImage}
           alt={""}
           className="h-full w-full object-cover object-center"

@@ -2,6 +2,17 @@ import fs from "fs";
 import { join } from "path";
 
 import matter from "gray-matter";
+import { unified } from "unified";
+import { remark } from "remark";
+import html from "remark-html";
+import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import rehypeStringify from "rehype-stringify";
+import rehypeShiki from "@leafac/rehype-shiki";
+import * as shiki from "shiki";
 
 import { Markdown } from "@/interfaces/Markdown";
 import { Notes } from "@/interfaces/Notes";
@@ -11,6 +22,8 @@ const getDir = (path: string): string => join(process.cwd(), path);
 const getFileNames = (dir: string): string[] => {
   return fs.readdirSync(dir);
 };
+
+const getSlugFromFileName = (fileName: string) => fileName.replace(/\.md$/, "");
 
 // getItemInPath :: string -> Markdown
 const getItemInPath = (filePath: string): Markdown => {
@@ -28,4 +41,59 @@ const getAllItems = (
   get: (fileName: string) => Markdown | Notes
 ): Markdown[] | Notes[] => fileNames.map((fileName) => get(fileName));
 
-export { getDir, getFileNames, getItemInPath, getAllItems };
+//====== Markdown parser ==========
+
+// memoize/cache the creation of the markdown parser, this sped up the
+// building of the blog from ~60s->~10s
+let p: ReturnType<typeof getParserPre> | undefined;
+
+async function getParserPre() {
+  return unified()
+    .use(remarkParse)
+    .use(remarkRehype)
+    .use(remarkGfm)
+    .use(rehypeShiki, {
+      highlighter: await shiki.getHighlighter({ theme: "poimandres" }),
+    })
+    .use(rehypeStringify)
+    .use(rehypeSlug)
+    .use(rehypeAutolinkHeadings, {
+      content: (arg) => ({
+        type: "element",
+        tagName: "a",
+        properties: {
+          // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
+          href: "#" + arg.properties?.id,
+          style: "margin-right: 10px",
+        },
+        children: [{ type: "text", value: "#" }],
+      }),
+    });
+}
+
+function getParser() {
+  if (!p) {
+    p = getParserPre().catch((e) => {
+      p = undefined;
+      throw e;
+    });
+  }
+  return p;
+}
+
+// TODO: !
+const markdownToHtml = async (markdown: string) => {
+  const result = await remark().use(html).use(remarkGfm).process(markdown);
+
+  return result.toString();
+};
+
+export {
+  getDir,
+  getSlugFromFileName,
+  getFileNames,
+  getItemInPath,
+  getAllItems,
+  getParser,
+  markdownToHtml,
+};

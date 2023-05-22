@@ -2,3 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .markdown-image-50 img {
+    max-width: 50%;
+    margin: auto;
+  }
+}

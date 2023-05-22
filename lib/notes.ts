@@ -3,12 +3,21 @@ import fs from "fs";
 
 import matter from "gray-matter";
 
-import { getDir, getFileNames, getItemInPath } from "./md";
+import {
+  getDir,
+  getSlugFromFileName,
+  getFileNames,
+  getItemInPath,
+  getParser,
+  markdownToHtml,
+} from "./md";
 import { Notes } from "@/interfaces/Notes";
 
 const NOTES_DIR = getDir("/content/notes");
 
 const getNotesFileNames = () => getFileNames(NOTES_DIR);
+
+const getNotesSlugs = () => getNotesFileNames().map(getSlugFromFileName);
 
 // getNotes :: string -> Notes
 const getNotes = (fileName: string): Notes => {
@@ -34,10 +43,16 @@ async function getNotesBySlug(slug: string): Promise<Notes> {
 
   const { data, content } = matter(notes);
 
+  const parser = await getParser();
+  const html = await parser.process(content);
+
+  // const html = await markdownToHtml(content);
+
   return {
     ...data,
-    content,
+    content: html.value.toString(),
+    // content: html.toString(),
   } as Notes;
 }
 
-export { getAllNotes, getNotesBySlug, getFileNames };
+export { getAllNotes, getNotesSlugs, getNotesBySlug, getFileNames };

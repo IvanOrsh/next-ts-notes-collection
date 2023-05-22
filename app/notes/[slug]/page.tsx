@@ -1,12 +1,12 @@
-import { getAllNotes, getNotesBySlug } from "@/lib/notes";
+import { getNotesSlugs, getNotesBySlug } from "@/lib/notes";
 import { PageLayout } from "@/components/layouts";
 import { NoteHeader } from "@/components/notes";
 
-export async function generateStaticParams() {
-  const notes = await getAllNotes();
+export function generateStaticParams() {
+  const slugs = getNotesSlugs();
 
-  return notes.map((n) => ({
-    slug: n.slug,
+  return slugs.map((slug) => ({
+    slug,
   }));
 }
 

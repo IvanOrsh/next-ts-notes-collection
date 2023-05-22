@@ -1,6 +1,8 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@headlessui/react': ^1.7.14
+  '@heroicons/react': ^2.0.18
   '@types/node': 20.2.1
   '@types/react': 18.2.6
   '@types/react-dom': 18.2.4
@@ -25,6 +27,8 @@ specifiers:
   typescript: 5.0.4
 
 dependencies:
+  '@headlessui/react': 1.7.14_react-dom@18.2.0+react@18.2.0
+  '@heroicons/react': 2.0.18_react@18.2.0
   '@types/node': 20.2.1
   '@types/react': 18.2.6
   '@types/react-dom': 18.2.4
@@ -96,6 +100,26 @@ packages:
   /@eslint/js/8.41.0:
     resolution: {integrity: sha512-LxcyMGxwmTh2lY9FwHPGWOHmYFCZvbrFCBZL4FzSSsxsRPuhrYUg/49/0KDfW8tnIEaEHtfmn6+NPN+1DqaNmA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    dev: false
+
+  /@headlessui/react/1.7.14_react-dom@18.2.0+react@18.2.0:
+    resolution: {integrity: sha512-znzdq9PG8rkwcu9oQ2FwIy0ZFtP9Z7ycS+BAqJ3R5EIqC/0bJGvhT7193rFf+45i9nnPsYvCQVW4V/bB9Xc+gA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: ^16 || ^17 || ^18
+      react-dom: ^16 || ^17 || ^18
+    dependencies:
+      client-only: 0.0.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /@heroicons/react/2.0.18_react@18.2.0:
+    resolution: {integrity: sha512-7TyMjRrZZMBPa+/5Y8lN0iyvUU/01PeMGX2+RE7cQWpEUIcb4QotzUObFkJDejj/HUH4qjP/eQ0gzzKs2f+6Yw==}
+    peerDependencies:
+      react: '>= 16'
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /@humanwhocodes/config-array/0.11.8:

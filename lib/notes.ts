@@ -13,6 +13,8 @@ const getNotesFileNames = () => getFileNames(NOTES_DIR);
 // getNotes :: string -> Notes
 const getNotes = (fileName: string): Notes => {
   const notes = getItemInPath(join(NOTES_DIR, fileName)) as Notes;
+
+  notes.slug = fileName.replace(/\.md$/, "");
   return notes;
 };
 
@@ -25,7 +27,7 @@ const getAllNotes = async (): Promise<Notes[]> => {
 };
 
 // TODO: refactor
-export async function getNotesBySlug(slug: string): Promise<Notes> {
+async function getNotesBySlug(slug: string): Promise<Notes> {
   const fullPath = join(NOTES_DIR, `${slug}.md`);
 
   const notes = await fs.promises.readFile(fullPath, "utf8");
@@ -38,4 +40,4 @@ export async function getNotesBySlug(slug: string): Promise<Notes> {
   } as Notes;
 }
 
-export { getAllNotes };
+export { getAllNotes, getNotesBySlug, getFileNames };

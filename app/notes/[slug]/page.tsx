@@ -1,5 +1,6 @@
-import { Notes } from "@/interfaces/Notes";
 import { getAllNotes, getNotesBySlug } from "@/lib/notes";
+import { PageLayout } from "@/components/layouts";
+import { NoteHeader } from "@/components/notes";
 
 export async function generateStaticParams() {
   const notes = await getAllNotes();
@@ -20,17 +21,24 @@ export async function generateMetadata({
   };
 }
 
-export default async function Notes({
+// horrible name
+export default async function SingleNotesItem({
   params: { slug },
 }: {
   params: { slug: string };
 }) {
-  const { content, title, date } = await getNotesBySlug(slug);
+  const notes = await getNotesBySlug(slug);
   return (
-    <article>
-      <h1>{title}</h1>
-      <h4>{date}</h4>
-      <div>{content}</div>
-    </article>
+    <>
+      <PageLayout>
+        <div className="m-auto w-2/3">
+          <NoteHeader notes={notes} />
+          <article className="prose lg:prose-lg markdown-image-50">
+            {/* Notes Content Here */}
+            <div dangerouslySetInnerHTML={{ __html: notes.content }} />
+          </article>
+        </div>
+      </PageLayout>
+    </>
   );
 }

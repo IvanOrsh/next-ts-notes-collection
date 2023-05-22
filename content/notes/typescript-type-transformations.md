@@ -1,6 +1,5 @@
 ---
 title: "TypeScript: Type Transformations"
-slug: "typescript-type-transformations"
 description: "These notes are covering such topics as: type inference, union and indexing, template literal, type helper patterns, conditional types and key mapping."
 author: Ivan O
 authorImage: https://images.unsplash.com/photo-1509396591411-549811e332fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80

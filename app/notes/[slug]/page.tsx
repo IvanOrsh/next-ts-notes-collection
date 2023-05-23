@@ -31,26 +31,21 @@ export default async function SingleNotesItem({
 }) {
   const notes = await getNotesBySlug(slug);
 
-  console.log(notes.tableOfContents);
-
   // Add a CSS class to the container element
   const containerClassName = styles["markdown-body"];
   return (
     <>
       <PageLayout>
         <NoteHeader notes={notes} />
-        <div className="m-auto flex">
+        <div className="mx-auto flex">
           {notes.tableOfContents && (
             <SideMenu slug={slug} menuItems={notes.tableOfContents} />
           )}
-          <div className="flex-1 p-4">
-            <article className="prose lg:prose-lg markdown-image-50">
-              {/* Notes Content Here */}
-              <div
-                className={containerClassName}
-                dangerouslySetInnerHTML={{ __html: notes.content }}
-              />
-            </article>
+          <div className="w-2/3 flex-grow p-4">
+            <div
+              className={containerClassName}
+              dangerouslySetInnerHTML={{ __html: notes.content }}
+            />
           </div>
         </div>
       </PageLayout>

@@ -6,9 +6,10 @@ type SideMenuItemProps = {
   title: string;
   anchor: string;
   level: number;
+  onClick?: () => void;
 };
 
-const SideMenuItem = ({ title, anchor, level }: SideMenuItemProps) => {
+const SideMenuItem = ({ title, anchor, level, onClick }: SideMenuItemProps) => {
   const itemClasses = classNames(
     "block border-b py-2",
     {
@@ -21,7 +22,7 @@ const SideMenuItem = ({ title, anchor, level }: SideMenuItemProps) => {
 
   return (
     <li>
-      <Link href={anchor} className={itemClasses}>
+      <Link onClick={onClick} href={anchor} className={itemClasses}>
         {title}
       </Link>
     </li>

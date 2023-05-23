@@ -60,9 +60,7 @@ const Navbar = () => {
                 </Link>
               ))}
             </div>
-            <div className="hidden md:block">
-              {/* Search Input Component */}
-            </div>
+            <div className="hidden md:block">{/* Content Search */}</div>
           </nav>
         </div>
 

@@ -1,6 +1,7 @@
 import * as JsSearch from "js-search";
 
 import searchIndex from "@/content/search/index.json";
+import { SearchContent } from "@/interfaces/SearchContent";
 
 class ContentIndexer {
   private static instance: ContentIndexer;
@@ -15,12 +16,12 @@ class ContentIndexer {
     this.buildIndex();
   }
 
-  public search(query: string) {
-    return this.searchEngine.search(query);
+  public search(query: string): SearchContent[] {
+    return this.searchEngine.search(query) as SearchContent[];
   }
 
   private buildIndex() {
-    this.searchEngine = new JsSearch.Search("slug");
+    this.searchEngine = new JsSearch.Search("title");
     this.searchEngine.addIndex("title");
     this.searchEngine.addIndex("description");
     this.searchEngine.addDocuments(searchIndex);

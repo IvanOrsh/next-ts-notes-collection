@@ -6,5 +6,5 @@ export interface Markdown {
   content: string;
   slug: string;
   date: string;
-  tableOfContents?: TableOfContentsItem[];
+  tableOfContents: TableOfContentsItem[];
 }

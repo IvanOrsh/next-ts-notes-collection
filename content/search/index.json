@@ -1,0 +1,20 @@
+[
+  {
+    "slug": "typescript-fundamentals",
+    "title": "Typescript: Fundamentals",
+    "description": "Getting started with TypeScript",
+    "category": "notes"
+  },
+  {
+    "slug": "typescript-type-transformations",
+    "title": "TypeScript: Type Transformations",
+    "description": "These notes are covering such topics as: type inference, union and indexing, template literal, type helper patterns, conditional types and key mapping.",
+    "category": "notes"
+  },
+  {
+    "slug": "graphql-apollo-server-fundamentals",
+    "title": "GraphQL: Fundamentals",
+    "description": "Getting started with GraphQL",
+    "category": "notes"
+  }
+]

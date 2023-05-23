@@ -52,7 +52,6 @@ date: "2022-05-05"
   - [5.3 Typing `children`](#53-typing-children)
   - [5.4 Built-in helpers for typing children in React](#54-built-in-helpers-for-typing-children-in-react)
   - [5.5 Typing `useState`](#55-typing-usestate)
-    - [`useState`](#usestate)
   - [5.6 Typing Reducers](#56-typing-reducers)
     - [5.6.1 Refactoring from `useState` to `useReducer`](#561-refactoring-from-usestate-to-usereducer)
     - [5.6.2 Monstrosity reducer example:](#562-monstrosity-reducer-example)
@@ -1233,7 +1232,7 @@ export default Counter;
 
 ---
 
-### `useState`
+**`useState`**
 
 ```tsx
 export type Quote = {

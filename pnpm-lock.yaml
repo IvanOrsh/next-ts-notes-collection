@@ -11,6 +11,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^5.59.6
   '@typescript-eslint/parser': ^5.59.6
   autoprefixer: 10.4.14
+  classnames: ^2.3.2
   eslint: 8.41.0
   eslint-config-next: 13.4.3
   eslint-config-prettier: ^8.8.0
@@ -47,6 +48,7 @@ dependencies:
   '@types/react': 18.2.6
   '@types/react-dom': 18.2.4
   autoprefixer: 10.4.14_postcss@8.4.23
+  classnames: 2.3.2
   eslint: 8.41.0
   eslint-config-next: 13.4.3_eslint@8.41.0+typescript@5.0.4
   gray-matter: 4.0.3
@@ -815,6 +817,10 @@ packages:
       readdirp: 3.6.0
     optionalDependencies:
       fsevents: 2.3.2
+    dev: false
+
+  /classnames/2.3.2:
+    resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
     dev: false
 
   /client-only/0.0.1:

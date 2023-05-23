@@ -16,9 +16,9 @@ date: "2022-05-05"
   - [2.2 `any`](#22-any)
   - [2.3 `void` and `never`](#23-void-and-never)
   - [2.4 Arrays (with types!)](#24-arrays-with-types)
-  - [2.6 Tuples](#26-tuples)
-  - [2.7 Interfaces](#27-interfaces)
-  - [2.8 Classes](#28-classes)
+  - [2.5 Tuples](#25-tuples)
+  - [2.6 Interfaces](#26-interfaces)
+  - [2.7 Classes](#27-classes)
 - [3. Using TS](#3-using-ts)
   - [3.1 Type Definition Files](#31-type-definition-files)
   - [3.2 Typical Typescript File](#32-typical-typescript-file)
@@ -128,22 +128,15 @@ example: "red":
 
 **Types**:
 
-- Primitive Types:
-
-  - number
-  - string
-  - boolean
-  - symbol
-  - void
-  - null
-  - undefined
-
-- Object Types:
-
-  - functions
-  - classes
-  - arrays
-  - objects
+| Primitive Types | Object Types |
+| --------------- | ------------ |
+| number          | function     |
+| string          | class        |
+| boolean         | array        |
+| symbol          | object       |
+| void            |              |
+| null            |              |
+| undefined       |              |
 
 - **Why do we care about types?**:
 
@@ -200,8 +193,6 @@ const throwError = (message: string): never => {
 };
 ```
 
----
-
 **Destructuring with Annotations**:
 
 ```ts
@@ -216,8 +207,6 @@ const logWeather = ({
   console.log(weather);
 };
 ```
-
----
 
 **Annotations Around Objects**:
 
@@ -283,7 +272,7 @@ importantDates.push(new Date());
 
 **When to use this?** - Any time we need to represent a collection of records with some arbitrary sort order
 
-## 2.6 Tuples
+## 2.5 Tuples
 
 **Tuples** - Array-like structure where each element represents some property of a record
 
@@ -297,7 +286,7 @@ type Drink = [string, boolean, number];
 const pepsi: Drink = ["brown", true, 40];
 ```
 
-## 2.7 Interfaces
+## 2.6 Interfaces
 
 **Interfaces** - Creates a new type, describing the property names and values types of an object.
 
@@ -343,7 +332,7 @@ printSummary(drink);
 - Create functions that accepts arguments that are typed with interfaces
 - Objects/classes can decide to 'implement' a given interface to work with a function
 
-## 2.8 Classes
+## 2.7 Classes
 
 **Classes** - Blueprint to create an object with some fields (values) and methods (functions) to represent a "thing"
 

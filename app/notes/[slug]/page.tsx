@@ -1,6 +1,7 @@
 import { getNotesSlugs, getNotesBySlug } from "@/lib/notes";
 import { PageLayout } from "@/components/layouts";
 import { NoteHeader } from "@/components/notes";
+import styles from "./markdown.module.css";
 
 export function generateStaticParams() {
   const slugs = getNotesSlugs();
@@ -28,6 +29,9 @@ export default async function SingleNotesItem({
   params: { slug: string };
 }) {
   const notes = await getNotesBySlug(slug);
+
+  // Add a CSS class to the container element
+  const containerClassName = styles["markdown-body"];
   return (
     <>
       <PageLayout>
@@ -35,7 +39,10 @@ export default async function SingleNotesItem({
           <NoteHeader notes={notes} />
           <article className="prose lg:prose-lg markdown-image-50">
             {/* Notes Content Here */}
-            <div dangerouslySetInnerHTML={{ __html: notes.content }} />
+            <div
+              className={containerClassName}
+              dangerouslySetInnerHTML={{ __html: notes.content }}
+            />
           </article>
         </div>
       </PageLayout>

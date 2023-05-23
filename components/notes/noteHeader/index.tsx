@@ -10,7 +10,7 @@ const NoteHeader = ({ notes }: NoteHeaderProps) => {
   const { author, authorImage, date, title, description, coverImage } = notes;
 
   return (
-    <div className="blog-detail-header">
+    <div className="flex-1">
       <div className="mb-2 flex flex-row justify-between">
         <div className="flex items-center">
           <div className="flex-shrink-0">

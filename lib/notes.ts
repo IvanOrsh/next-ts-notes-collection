@@ -3,6 +3,7 @@ import fs from "fs";
 
 import matter from "gray-matter";
 
+import { TableOfContentsItem } from "@/interfaces/TableOfContentsItem";
 import {
   getDir,
   getSlugFromFileName,
@@ -35,7 +36,49 @@ const getAllNotes = async (): Promise<Notes[]> => {
   return allNotes;
 };
 
-// TODO: refactor
+// table of contents madness
+function extractTableOfContents(content: string): TableOfContentsItem[] {
+  const regex = /^\s*-\s*\[([^\]]+)\]\(#([^\\)]+)\)/gm;
+  const tableOfContents: TableOfContentsItem[] = [];
+
+  let match;
+  const levelStack: number[] = [];
+  while ((match = regex.exec(content)) !== null) {
+    const title = match[1];
+    const anchor = match[2];
+    const level = computeLevel(match[1]);
+
+    // Update the level stack
+    while (level <= levelStack[levelStack.length - 1]) {
+      levelStack.pop();
+    }
+    levelStack.push(level);
+
+    tableOfContents.push({ title, anchor, level: levelStack.length });
+  }
+
+  return tableOfContents;
+}
+
+function computeLevel(title: string): number {
+  const numberingPattern = /^\d+(\.\d+)*\s/;
+  const match = title.match(numberingPattern);
+
+  if (match) {
+    const numbering = match[0];
+    return numbering.split(".").length;
+  }
+
+  return 1;
+}
+
+function removeTableOfContents(content: string): string {
+  const regex = /^\s*-\s*\[([^\]]+)\]\(#([^\\)]+)\)/gm;
+  const updatedContent = content.replace(regex, "");
+  return updatedContent;
+}
+
+// TODO: refactor!!!!
 async function getNotesBySlug(slug: string): Promise<Notes> {
   const fullPath = join(NOTES_DIR, `${slug}.md`);
 
@@ -43,13 +86,17 @@ async function getNotesBySlug(slug: string): Promise<Notes> {
 
   const { data, content } = matter(notes);
 
+  const tableOfContents = extractTableOfContents(content);
+  const updatedContent = removeTableOfContents(content);
+
   const parser = await getParser();
-  const html = await parser.process(content);
+  const html = await parser.process(updatedContent);
 
   // const html = await markdownToHtml(content);
 
   return {
     ...data,
+    tableOfContents,
     content: html.value.toString(),
     // content: html.toString(),
   } as Notes;

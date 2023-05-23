@@ -15,6 +15,10 @@ class ContentIndexer {
     this.buildIndex();
   }
 
+  public search(query: string) {
+    return this.searchEngine.search(query);
+  }
+
   private buildIndex() {
     this.searchEngine = new JsSearch.Search("slug");
     this.searchEngine.addIndex("title");

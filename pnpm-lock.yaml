@@ -4,7 +4,10 @@ specifiers:
   '@headlessui/react': ^1.7.14
   '@heroicons/react': ^2.0.18
   '@leafac/rehype-shiki': ^2.2.1
+  '@types/color-convert': ^2.0.0
   '@types/js-search': ^1.4.0
+  '@types/lodash.uniq': ^4.5.7
+  '@types/lodash.uniqueid': ^4.0.7
   '@types/node': 20.2.1
   '@types/react': 18.2.6
   '@types/react-dom': 18.2.4
@@ -13,6 +16,8 @@ specifiers:
   autoprefixer: 10.4.14
   classnames: ^2.3.2
   clsx: ^1.2.1
+  color-convert: ^2.0.1
+  color-name-list: ^10.7.0
   eslint: 8.41.0
   eslint-config-next: 13.4.3
   eslint-config-prettier: ^8.8.0
@@ -23,6 +28,8 @@ specifiers:
   eslint-plugin-react-hooks: ^4.6.0
   gray-matter: ^4.0.3
   js-search: ^2.0.1
+  lodash.uniq: ^4.5.0
+  lodash.uniqueid: ^4.0.1
   next: 13.4.3
   postcss: 8.4.23
   prettier: ^2.8.8
@@ -38,6 +45,7 @@ specifiers:
   remark-parse: ^10.0.2
   remark-rehype: ^10.1.0
   shiki: ^0.14.2
+  simpler-color: ^1.0.1
   tailwindcss: 3.3.2
   typescript: 5.0.4
   unified: ^10.1.2
@@ -46,16 +54,21 @@ dependencies:
   '@headlessui/react': 1.7.14_react-dom@18.2.0+react@18.2.0
   '@heroicons/react': 2.0.18_react@18.2.0
   '@leafac/rehype-shiki': 2.2.1_shiki@0.14.2
+  '@types/color-convert': 2.0.0
   '@types/node': 20.2.1
   '@types/react': 18.2.6
   '@types/react-dom': 18.2.4
   autoprefixer: 10.4.14_postcss@8.4.23
   classnames: 2.3.2
   clsx: 1.2.1
+  color-convert: 2.0.1
+  color-name-list: 10.7.0
   eslint: 8.41.0
   eslint-config-next: 13.4.3_eslint@8.41.0+typescript@5.0.4
   gray-matter: 4.0.3
   js-search: 2.0.1
+  lodash.uniq: 4.5.0
+  lodash.uniqueid: 4.0.1
   next: 13.4.3_react-dom@18.2.0+react@18.2.0
   postcss: 8.4.23
   react: 18.2.0
@@ -69,12 +82,15 @@ dependencies:
   remark-parse: 10.0.2
   remark-rehype: 10.1.0
   shiki: 0.14.2
+  simpler-color: 1.0.1
   tailwindcss: 3.3.2
   typescript: 5.0.4
   unified: 10.1.2
 
 devDependencies:
   '@types/js-search': 1.4.0
+  '@types/lodash.uniq': 4.5.7
+  '@types/lodash.uniqueid': 4.0.7
   '@typescript-eslint/eslint-plugin': 5.59.6_80139676ef4236fdcadd85592a9b075a
   '@typescript-eslint/parser': 5.59.6_eslint@8.41.0+typescript@5.0.4
   eslint-config-prettier: 8.8.0_eslint@8.41.0
@@ -349,6 +365,16 @@ packages:
       tslib: 2.5.2
     dev: false
 
+  /@types/color-convert/2.0.0:
+    resolution: {integrity: sha512-m7GG7IKKGuJUXvkZ1qqG3ChccdIM/qBBo913z+Xft0nKCX4hAU/IxKwZBU4cpRZ7GS5kV4vOblUkILtSShCPXQ==}
+    dependencies:
+      '@types/color-name': 1.1.1
+    dev: false
+
+  /@types/color-name/1.1.1:
+    resolution: {integrity: sha512-rr+OQyAjxze7GgWrSaJwydHStIhHq2lvY3BOC2Mj7KnzI7XK0Uw1TOOdI9lDoajEbSWLiYgoo4f1R51erQfhPQ==}
+    dev: false
+
   /@types/debug/4.1.8:
     resolution: {integrity: sha512-/vPO1EPOs306Cvhwv7KfVfYvOJqA/S/AXjaHQiJboCZzcNDb+TIJFN9/2C9DZ//ijSKWioNyUxD792QmDJ+HKQ==}
     dependencies:
@@ -371,6 +397,22 @@ packages:
 
   /@types/json5/0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
+
+  /@types/lodash.uniq/4.5.7:
+    resolution: {integrity: sha512-qg7DeAbdZMi6DGvCxThlJycykLLhETrJrQZ6F2KaZ+o0sNK1qRHz46lgNA+nHHjwrmA2a91DyiZTp3ey3m1rEw==}
+    dependencies:
+      '@types/lodash': 4.14.194
+    dev: true
+
+  /@types/lodash.uniqueid/4.0.7:
+    resolution: {integrity: sha512-ipMGW5nR+DTR6U5O08k1Ufr1F9iH+F3p7bhdwsnq6V6nCn/HgMq22UalDq4n91+03+pHFKyeXV1Y7vdJrm7S4g==}
+    dependencies:
+      '@types/lodash': 4.14.194
+    dev: true
+
+  /@types/lodash/4.14.194:
+    resolution: {integrity: sha512-r22s9tAS7imvBt2lyHC9B8AGwWnXaYb1tY09oyLkXDs4vArpYJzw09nj8MLx5VfciBPGIb+ZwG0ssYnEPJxn/g==}
+    dev: true
 
   /@types/mdast/3.0.11:
     resolution: {integrity: sha512-Y/uImid8aAwrEA24/1tcRZwpxX3pIFTSilcNDKSPn+Y2iDywSEachzRuvgAYYLR3wpGXAsMbv5lvKLDZLeYPAw==}
@@ -833,6 +875,11 @@ packages:
     engines: {node: '>=7.0.0'}
     dependencies:
       color-name: 1.1.4
+    dev: false
+
+  /color-name-list/10.7.0:
+    resolution: {integrity: sha512-caycAVx3+tHBKQzvPtyO5eXxC6gFo+9iyBSkWp+7Dx9UYOt6DkqA9cwW8dEcJL6Fd5IAi5GZRotDVjAKneUZRQ==}
+    engines: {node: '>=16', npm: '>=8.11.0'}
     dev: false
 
   /color-name/1.1.4:
@@ -2091,6 +2138,14 @@ packages:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
     dev: false
 
+  /lodash.uniq/4.5.0:
+    resolution: {integrity: sha512-xfBaXQd9ryd9dlSDvnvI0lvxfLJlYAZzXomUYzLKtUeOQvOP5piqAWuGtrhWeqaXK9hhoM/iyJc5AV+XfsX3HQ==}
+    dev: false
+
+  /lodash.uniqueid/4.0.1:
+    resolution: {integrity: sha512-GQQWaIeGlL6DIIr06kj1j6sSmBxyNMwI8kaX9aKpHR/XsMTiaXDVPNPAkiboOTK9OJpTJF/dXT3xYoFQnj386Q==}
+    dev: false
+
   /longest-streak/3.1.0:
     resolution: {integrity: sha512-9Ri+o0JYgehTaVBBDoMqIl8GXtbWg711O3srftcHhZ0dqnETqLaoIK0x17fUw9rFSlK/0NlsKe0Ahhyl5pXE2g==}
     dev: false
@@ -3215,6 +3270,12 @@ packages:
 
   /signal-exit/3.0.7:
     resolution: {integrity: sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==}
+
+  /simpler-color/1.0.1:
+    resolution: {integrity: sha512-X/iGIlUBEdXhqZ6HCvEExdk6EARkpM50ufsNg9SBc4Jy7FhVKxJq4QezJXnxs7C1+cK929f9vOvkrETgriJJ6g==}
+    dependencies:
+      '@babel/runtime': 7.21.5
+    dev: false
 
   /slash/3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}

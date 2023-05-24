@@ -1,7 +1,7 @@
 import { ChangeEventHandler } from "react";
 
 import HexColor from "../components/HexColor";
-import LabeledInput from "@/components/common/labeled-input";
+import LabeledInput from "@/components/common/labeledInput";
 
 type ColorSelectProps = {
   hexColor: string;

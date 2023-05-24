@@ -16,5 +16,11 @@
     "title": "GraphQL: Fundamentals",
     "description": "Getting started with GraphQL",
     "category": "notes"
+  },
+  {
+    "slug": "nestjs-fundamentals-sg",
+    "title": "NestJS: Fundamentals",
+    "description": "Full overview of NestJS",
+    "category": "notes"
   }
 ]

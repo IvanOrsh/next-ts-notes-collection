@@ -37,7 +37,7 @@ date: "2022-08-15"
   - [4.4 Multiple](#44-multiple)
   - [4.5 Defaults](#45-defaults)
   - [4.6 Function constraints](#46-function-constraints)
-  - [4,7 Not undefined or null constraint](#47-not-undefined-or-null-constraint)
+  - [4.7 Not undefined or null constraint](#47-not-undefined-or-null-constraint)
   - [4.8 Not empty array (this one)](#48-not-empty-array-this-one)
 - [5. Conditional Types and `infer`](#5-conditional-types-and-infer)
   - [5.1 Conditional Types](#51-conditional-types)
@@ -980,7 +980,7 @@ type tests = [
 ];
 ```
 
-## 4,7 Not undefined or null constraint
+## 4.7 Not undefined or null constraint
 
 - `{}` - anything that is not `null` or `undefined`
 - TS will do structural comparison

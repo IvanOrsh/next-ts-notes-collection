@@ -1,6 +1,6 @@
-import { NoteList } from "@/components/notes";
 import { getAllNotes } from "@/lib/notes";
-import { PageLayout } from "@/components/layouts";
+
+import AllNotesPage from "./all-notes-page";
 
 export function generateMetadata() {
   return {
@@ -8,15 +8,8 @@ export function generateMetadata() {
   };
 }
 
-export default async function AllNotes() {
+export default async function Page() {
   const notes = await getAllNotes();
 
-  return (
-    <PageLayout>
-      <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-        All Notes
-      </h2>
-      <NoteList notes={notes} />
-    </PageLayout>
-  );
+  return <AllNotesPage notes={notes} />;
 }

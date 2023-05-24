@@ -16,6 +16,7 @@ import * as shiki from "shiki";
 
 import { Markdown } from "@/interfaces/Markdown";
 import { Notes } from "@/interfaces/Notes";
+import { SearchContent } from "@/interfaces/SearchContent";
 
 const getDir = (path: string): string => join(process.cwd(), path);
 
@@ -88,6 +89,25 @@ const markdownToHtml = async (markdown: string) => {
   return result.toString();
 };
 
+const saveSearchData = (notes: Notes[]) => {
+  const searchFile = getDir("/content/search/index.json");
+  const searchItemList: SearchContent[] = [];
+
+  notes.forEach((note) => {
+    const { slug, title, description } = note;
+    const searchItem: SearchContent = {
+      slug,
+      title,
+      description,
+      category: "notes",
+    };
+
+    searchItemList.push(searchItem);
+  });
+
+  fs.writeFileSync(searchFile, JSON.stringify(searchItemList));
+};
+
 export {
   getDir,
   getSlugFromFileName,
@@ -96,4 +116,5 @@ export {
   getAllItems,
   getParser,
   markdownToHtml,
+  saveSearchData,
 };

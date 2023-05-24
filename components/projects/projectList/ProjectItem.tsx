@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
+
 import { Project } from "@/interfaces/Project";
+import { shortify } from "@/lib/cient/utils";
 
 type ProjectItemProps = {
   project: Project;
@@ -22,10 +24,12 @@ const ProjectItem = ({ project }: ProjectItemProps) => {
       <h3 className="mt-6 text-sm text-gray-500">
         <Link href={`/projects/${slug}`}>
           <span className="absolute inset-0" />
-          {title}
+          {shortify(title)}
         </Link>
       </h3>
-      <p className="text-base font-semibold text-gray-900">{description}</p>
+      <p className="text-base font-semibold text-gray-900">
+        {shortify(description)}
+      </p>
     </div>
   );
 };

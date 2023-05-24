@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Notes } from "@/interfaces/Notes";
+import { shortify } from "@/lib/cient/utils";
 
 type NoteItemsProps = {
   note: Notes;
@@ -29,9 +30,9 @@ const NoteItem = ({ note }: NoteItemsProps) => {
         <div>
           <h3 className="text-sm font-bold text-gray-700">
             <span aria-hidden="true" className="inset-0" />
-            {title}
+            {shortify(title)}
           </h3>
-          <p className="mt-1 text-sm text-gray-500">{description}</p>
+          <p className="mt-1 text-sm text-gray-500">{shortify(description)}</p>
         </div>
       </div>
       <Link href={`/notes/${slug}`} className="text-sm font-bold text-gray-700">

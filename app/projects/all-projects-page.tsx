@@ -1,22 +1,22 @@
 "use client";
 
-import { Notes } from "@/interfaces/Notes";
+import { Project } from "@/interfaces/Project";
 import { PageLayout } from "@/components/layouts";
-import { NoteList } from "@/components/notes";
+import { ProjectList } from "@/components/projects";
 
-type AllNotesPageProps = {
-  notes: Notes[];
+type AllProjectsPageProps = {
+  projects: Project[];
 };
 
 // This is a Client Component. It receives data as props and
 // has access to state and effects
-export default function AllNotesPage({ notes }: AllNotesPageProps) {
+export default function AllProjectsPage({ projects }: AllProjectsPageProps) {
   return (
     <PageLayout>
       <h2 className="text-2xl font-bold tracking-tight text-gray-900">
         All Notes
       </h2>
-      <NoteList notes={notes} />
+      <ProjectList projects={projects} />
     </PageLayout>
   );
 }

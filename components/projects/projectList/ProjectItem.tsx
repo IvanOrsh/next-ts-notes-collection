@@ -1,14 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Project } from "@/interfaces/Project";
 
 type ProjectItemProps = {
-  project: {
-    slug: string;
-    title: string;
-    description: string;
-    date: string;
-    coverImage: string;
-  };
+  project: Project;
 };
 
 const ProjectItem = ({ project }: ProjectItemProps) => {

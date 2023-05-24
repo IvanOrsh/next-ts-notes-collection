@@ -30,7 +30,11 @@ const getNotes = (fileName: string): Notes => {
 
 const getAllNotes = async (): Promise<Notes[]> => {
   const allNotes = await Promise.all(
-    getNotesFileNames().map((notesFileName) => getNotes(notesFileName))
+    getNotesFileNames()
+      .map((notesFileName) => getNotes(notesFileName))
+      .sort((note1, note2) =>
+        new Date(note1.date) > new Date(note2.date) ? -1 : 1
+      )
   );
 
   return allNotes;

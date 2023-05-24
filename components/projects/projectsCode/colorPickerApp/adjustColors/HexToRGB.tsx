@@ -13,7 +13,7 @@ const HexToRGB = ({ hexColor }: HexToRGBProps) => {
   const updateRGB = useUpdateRGB();
 
   return (
-    <section className="grid w-full grid-flow-col gap-2">
+    <section className="grid flex-grow grid-flow-col gap-2">
       <LabeledInput
         label="R"
         type="number"

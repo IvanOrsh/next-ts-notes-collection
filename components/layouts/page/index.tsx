@@ -9,7 +9,7 @@ const PageLayout = ({ children }: PropsWithChildren) => {
         <div className="relative bg-white pb-8 lg:w-full lg:max-w-2xl">
           <Navbar />
         </div>
-        <div className="mx-auto max-w-2xl px-4 lg:max-w-7xl">{children}</div>
+        <div className="mx-auto max-w-3xl px-4 lg:max-w-7xl">{children}</div>
       </div>
       <Footer />
     </>

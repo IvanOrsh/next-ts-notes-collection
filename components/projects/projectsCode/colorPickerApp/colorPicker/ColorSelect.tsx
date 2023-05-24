@@ -19,7 +19,7 @@ const ColorSelect = ({
       <LabeledInput
         label="Color"
         id="color-input"
-        className="h-80 w-full"
+        className="h-10 w-full"
         type="color"
         value={hexColor}
         onChange={onChange}

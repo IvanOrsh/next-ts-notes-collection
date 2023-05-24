@@ -14,7 +14,7 @@ export default function AllProjectsPage({ projects }: AllProjectsPageProps) {
   return (
     <PageLayout>
       <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-        All Notes
+        All Projects
       </h2>
       <ProjectList projects={projects} />
     </PageLayout>

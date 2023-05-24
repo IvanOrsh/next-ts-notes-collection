@@ -17,6 +17,7 @@ import * as shiki from "shiki";
 import { Markdown } from "@/interfaces/Markdown";
 import { Notes } from "@/interfaces/Notes";
 import { SearchContent } from "@/interfaces/SearchContent";
+import { Project } from "@/interfaces/Project";
 
 const getDir = (path: string): string => join(process.cwd(), path);
 
@@ -39,8 +40,9 @@ const getItemInPath = (filePath: string): Markdown => {
 
 const getAllItems = (
   fileNames: string[],
-  get: (fileName: string) => Markdown | Notes
-): Markdown[] | Notes[] => fileNames.map((fileName) => get(fileName));
+  get: (fileName: string) => Markdown | Notes | Project
+): Markdown[] | Notes[] | Project[] =>
+  fileNames.map((fileName) => get(fileName));
 
 //====== Markdown parser ==========
 

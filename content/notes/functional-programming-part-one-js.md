@@ -17,7 +17,7 @@ date: "2021-12-15"
 - [3. Composition](#3-composition)
   - [3.1 Composition Intro](#31-composition-intro)
   - [3.2 Creating Programs with Curry \& Compose](#32-creating-programs-with-curry--compose)
-  - [3.3. Composition is Dot Chaining](#33-composition-is-dot-chaining)
+  - [3.3 Composition is Dot Chaining](#33-composition-is-dot-chaining)
   - [3.4 Logging in Composition](#34-logging-in-composition)
   - [3.5 Exercises](#35-exercises)
 - [4. Functors TODO: ask about monads](#4-functors-todo-ask-about-monads)
@@ -357,7 +357,7 @@ const doStuff = _.compose(
 );
 ```
 
-## 3.3. Composition is Dot Chaining
+## 3.3 Composition is Dot Chaining
 
 compare with example above (3.2)
 
